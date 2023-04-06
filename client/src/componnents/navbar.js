@@ -15,11 +15,13 @@ export const Navbar = () => {
       <Link to="/create-mydog">CreateMydog</Link>
       <Link to="/my-dog">MyDog</Link>
 
-      <Link to="/register">Register</Link>
       {!cookies.access_token ? (
-        <Link to="/login">Login</Link>
+        <>
+          {/* <Link to="/register">Register</Link> */}
+          <Link to="/login">login/Register</Link>
+        </>
       ) : (
-        <button onClick={handleLogout} style={{ backgroundColor: "red" }}>
+        <button onClick={handleLogout} style={{ backgroundColor: "white" }}>
           Logout
         </button>
       )}
