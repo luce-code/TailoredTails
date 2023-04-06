@@ -1,18 +1,40 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useCookies } from "react-cookie";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export const Auth = () => {
+  const [showRegisterForm, setShowRegisterForm] = useState(false);
+
+  const toggleRegisterForm = () => {
+    setShowRegisterForm(!showRegisterForm);
+  };
+
   return (
     <div className="auth">
-      <Login />
-      <Register />
+      {showRegisterForm ? (
+        <Register toggleRegisterForm={toggleRegisterForm} />
+      ) : (
+        <Login toggleRegisterForm={toggleRegisterForm} />
+      )}
+      <p>
+        {showRegisterForm ? (
+          <span>
+            Already have an account?{" "}
+            <button onClick={toggleRegisterForm}>Login here.</button>
+          </span>
+        ) : (
+          <span>
+            Don't have an account?{" "}
+            <button onClick={toggleRegisterForm}>Register here.</button>
+          </span>
+        )}
+      </p>
     </div>
   );
 };
 
-const Login = () => {
+const Login = ({ toggleRegisterForm }) => {
   const [_, setCookies] = useCookies(["access_token"]);
 
   const [username, setUsername] = useState("");
@@ -29,18 +51,24 @@ const Login = () => {
         password,
       });
 
-      setCookies("access_token", result.data.token);
-      window.localStorage.setItem("userID", result.data.userID);
-      navigate("/");
+      if (result.data.token) {
+        setCookies("access_token", result.data.token);
+        window.localStorage.setItem("userID", result.data.userID);
+        navigate("/");
+      } else {
+        alert("Username or password is incorrect");
+      }
     } catch (error) {
       console.error(error);
+      alert("Username or password is incorrect");
     }
   };
 
   return (
     <div className="auth-container">
+      <h2>Login</h2>
+      <p>Enter your username and password below to login:</p>
       <form onSubmit={handleSubmit}>
-        <h2>Login</h2>
         <div className="form-group">
           <label htmlFor="username">Username:</label>
           <input
@@ -61,11 +89,15 @@ const Login = () => {
         </div>
         <button type="submit">Login</button>
       </form>
+      <p>
+        Don't have an account?{" "}
+        <button onClick={toggleRegisterForm}>Register here.</button>
+      </p>
     </div>
   );
 };
 
-const Register = () => {
+const Register = ({ toggleRegisterForm }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -85,6 +117,7 @@ const Register = () => {
         password,
       });
       alert("Registration Completed! Now login.");
+      toggleRegisterForm();
     } catch (error) {
       console.error(error);
     }
@@ -92,8 +125,9 @@ const Register = () => {
 
   return (
     <div className="auth-container">
+      <h2>Register</h2>
+      <p>Create a new account by filling out the form below:</p>
       <form onSubmit={handleSubmit}>
-        <h2>Register</h2>
         <div className="form-group">
           <label htmlFor="username">Username:</label>
           <input
@@ -123,6 +157,8 @@ const Register = () => {
         </div>
         <button type="submit">Register</button>
       </form>
+      <p>Already have an account?</p>
+      <Link to="/login">Login here</Link>
     </div>
   );
 };
