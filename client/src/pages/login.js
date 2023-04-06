@@ -1,17 +1,20 @@
 import { useState } from "react";
 import axios from "axios";
+import { useCookies } from "react-cookie";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [cookies, setCookie] = useCookies(["access_token"]);
 
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:3003/auth/login", {
+      const response = await axios.post("http://localhost:3003/auth/login", {
         username,
         password,
       });
+      setCookie("access_token", response.data.access_token);
       alert("Login successful!");
     } catch (error) {
       console.error(error);
