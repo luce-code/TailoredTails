@@ -16,4 +16,4 @@ mongoose.connect(
   "mongodb+srv://TailoredTails:E3McVkTXMLTF0wUQ@tailoredtails.uarpfpi.mongodb.net/TailoredTails?retryWrites=true&w=majority"
 );
 
-app.listen(3003, () => console.log("SERVER STARTED"));
+app.listen(3001, () => console.log("SERVER STARTED"));
