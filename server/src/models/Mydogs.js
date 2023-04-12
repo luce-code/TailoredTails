@@ -1,25 +1,24 @@
 import mongoose from "mongoose";
 
-const mydogSchema = mongoose.Schema({
+const mydogsSchema = mongoose.Schema({
   name: {
     type: String,
     required: true,
   },
-  age: [
-    {
-      type: Number,
-      required: true,
-    },
-  ],
+  age: {
+    type: Number,
+    required: true,
+  },
+
   weight: {
     type: String,
     required: true,
   },
 
-  imageUrl: {
-    type: String,
-    required: true,
-  },
+  // imageUrl: {
+  //   type: String,
+  //   required: true,
+  // },
   breed: {
     type: String,
     required: true,
@@ -31,4 +30,4 @@ const mydogSchema = mongoose.Schema({
   },
 });
 
-export const mydogsModel = mongoose.model("Mydogs", mydogSchema);
+export const MydogsModel = mongoose.model("Mydogs", mydogsSchema);
