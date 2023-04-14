@@ -11,13 +11,13 @@ const mydogsSchema = mongoose.Schema({
   },
 
   weight: {
-    type: String,
+    type: Number,
     required: true,
   },
 
   // imageUrl: {
   //   type: String,
-  //   required: true,
+  //   required: false,
   // },
   breed: {
     type: String,

@@ -15,7 +15,13 @@ app.use("/auth", userRouter);
 app.use("/mydogs", mydogsRouter);
 
 mongoose.connect(
-  "mongodb+srv://TailoredTails:E3McVkTXMLTF0wUQ@tailoredtails.uarpfpi.mongodb.net/TailoredTails?retryWrites=true&w=majority"
+  "mongodb+srv://TailoredTails:E3McVkTXMLTF0wUQ@tailoredtails.uarpfpi.mongodb.net/TailoredTails?retryWrites=true&w=majority",
+  { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
-app.listen(3002, () => console.log("SERVER STARTED"));
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", () => {
+  console.log("Connected to database");
+  app.listen(3001, () => console.log("Server started on port 3001"));
+});

@@ -26,14 +26,15 @@ router.post("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 router.put("/", async (req, res) => {
   try {
     const mydog = await MydogsModel.findById(req.body.mydogId);
     const user = await UserModel.findById(req.body.userId);
 
-    user.savedMydogs.push(mydog);
+    user.savedMydogs.push(mydog._id);
     await user.save();
-    console.log("After save:", result);
+    console.log("After save:", user.savedMydogs);
     res.status(200).json({ savedMydogs: user.savedMydogs });
   } catch (err) {
     console.error(err);
@@ -43,12 +44,13 @@ router.put("/", async (req, res) => {
 
 router.get("/my-dog/ids", async (req, res) => {
   try {
-    const user = await UserModel.findById(req.body.userID);
+    const user = await UserModel.findById(req.query.userID);
     res.json({ savedMydogs: user?.savedMydogs });
   } catch (error) {
     res.json(error);
   }
 });
+
 router.get("/my-dog", async (req, res) => {
   try {
     const user = await UserModel.findById(req.body.userID);
