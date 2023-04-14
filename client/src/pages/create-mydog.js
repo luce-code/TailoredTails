@@ -9,7 +9,7 @@ export const CreateMydog = () => {
   const [cookies, _] = useCookies(["access_token"]);
   const [mydogs, setMydogs] = useState({
     name: "",
-    age: "",
+    age: { years: "", months: "" },
     weight: "",
     imageUrl: "",
     breed: "",
@@ -20,7 +20,18 @@ export const CreateMydog = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setMydogs({ ...mydogs, [name]: value });
+
+    if (name === "ageYears" || name === "ageMonths") {
+      setMydogs({
+        ...mydogs,
+        age: {
+          ...mydogs.age,
+          [name === "ageYears" ? "years" : "months"]: value,
+        },
+      });
+    } else {
+      setMydogs({ ...mydogs, [name]: value });
+    }
   };
 
   const handleSubmit = async (event) => {
@@ -33,12 +44,15 @@ export const CreateMydog = () => {
           headers: { Authorization: `Bearer ${cookies.access_token}` },
         }
       );
-
       alert("Mydog created successfully!");
       navigate("/");
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const convertToLbs = (kg) => {
+    return Math.round(kg * 2.20462);
   };
 
   return (
@@ -61,14 +75,17 @@ export const CreateMydog = () => {
           value={mydogs.age}
           onChange={handleChange}
         />
-        <label htmlFor="weight">Weight</label>
-        <input
-          type="number"
-          id="weight"
-          name="weight"
-          value={mydogs.weight}
-          onChange={handleChange}
-        />
+        <label htmlFor="weight">Weight (kg)</label>
+        <div>
+          <input
+            type="number"
+            id="weight"
+            name="weight"
+            value={mydogs.weight}
+            onChange={handleChange}
+          />
+          <span>{`(${convertToLbs(mydogs.weight)} lbs)`}</span>
+        </div>
         <label htmlFor="imageUrl">Image URL</label>
         <input
           type="text"

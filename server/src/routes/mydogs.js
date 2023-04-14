@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import { MydogsModel } from "../models/Mydogs.js";
 import { UserModel } from "../models/Users.js";
+// import authenticateMiddleware from "../middleware/authenticateMiddleware.js";
 
 const router = express.Router();
 
@@ -60,6 +61,35 @@ router.post("/my-dog", async (req, res) => {
     res.json({ savedMydogs });
   } catch (error) {
     res.json(error);
+  }
+});
+
+// router.delete("/:id", authenticateMiddleware, async (req, res) => {
+//   try {
+//     const mydog = await MydogsModel.findById(req.params.id);
+//     if (!mydog) {
+//       return res.status(404).send("Mydog not found");
+//     }
+//     if (mydog.userOwner.toString() !== req.user.id) {
+//       return res.status(401).send("Not authorized");
+//     }
+//     const deletedMydog = await MydogsModel.findByIdAndDelete(req.params.id);
+//     res.send(deletedMydog);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).send("Server error");
+//   }
+// });
+router.delete("/:id", async (req, res) => {
+  try {
+    const mydog = await MydogsModel.findByIdAndDelete(req.params.id);
+    if (!mydog) {
+      return res.status(404).send("Mydog not found");
+    }
+    res.send(mydog);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server error");
   }
 });
 
