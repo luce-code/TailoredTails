@@ -51,7 +51,7 @@ router.get("/my-dog/ids", async (req, res) => {
   }
 });
 
-router.get("/my-dog", async (req, res) => {
+router.post("/my-dog", async (req, res) => {
   try {
     const user = await UserModel.findById(req.body.userID);
     const savedMydogs = await MydogsModel.find({

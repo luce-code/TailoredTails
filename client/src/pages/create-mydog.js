@@ -27,7 +27,7 @@ export const CreateMydog = () => {
     event.preventDefault();
     try {
       await axios.post(
-        "http://localhost:3001/mydogs/my-dog",
+        "http://localhost:3001/mydogs",
         { ...mydogs },
         {
           headers: { Authorization: `Bearer ${cookies.access_token}` },
