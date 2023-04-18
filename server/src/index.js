@@ -10,6 +10,7 @@ const app = express();
 // Middleware to parse JSON data
 app.use(express.json());
 app.use(cors());
+app.use(express.static("uploads"));
 
 app.use("/auth", userRouter);
 app.use("/mydogs", mydogsRouter);

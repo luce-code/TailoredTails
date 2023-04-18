@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useGetUserID } from "../hooks/useGetUserID";
 
 export const Home = () => {
+  const userID = useGetUserID();
   const [mydogs, setMydogs] = useState([]);
 
   const getAgeInYearsAndMonths = (ageInMonths) => {
@@ -13,7 +15,11 @@ export const Home = () => {
   useEffect(() => {
     const fetchMydogs = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/mydogs");
+        const response = await axios.get("http://localhost:3001/mydogs", {
+          headers: {
+            "user-id": userID,
+          },
+        });
         setMydogs(response.data);
       } catch (error) {
         console.error(error);

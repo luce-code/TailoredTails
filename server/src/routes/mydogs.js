@@ -2,15 +2,18 @@ import express from "express";
 import mongoose from "mongoose";
 import { MydogsModel } from "../models/Mydogs.js";
 import { UserModel } from "../models/Users.js";
-// import authenticateMiddleware from "../middleware/authenticateMiddleware.js";
 
 const router = express.Router();
 
+//each user can only see her/his posts
 router.get("/", async (req, res) => {
+  const userID = req.headers["user-id"];
+  const myDogs = await MydogsModel.find({ userOwner: userID });
   try {
-    const result = await MydogsModel.find({});
-    res.status(200).json(result);
+    console.log("Dogs found:", myDogs);
+    res.status(200).json(myDogs);
   } catch (err) {
+    console.error(err);
     res.status(500).json(err);
   }
 });

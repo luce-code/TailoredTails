@@ -36,12 +36,16 @@ export const CreateMydog = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     try {
       await axios.post(
         "http://localhost:3001/mydogs",
         { ...mydogs },
         {
-          headers: { Authorization: `Bearer ${cookies.access_token}` },
+          headers: {
+            Authorization: `Bearer ${cookies.access_token}`,
+            "user-id": userID,
+          },
         }
       );
       alert("Mydog created successfully!");

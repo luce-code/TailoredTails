@@ -21,12 +21,12 @@ export const Auth = () => {
         {showRegisterForm ? (
           <span>
             Already have an account?{" "}
-            <button onClick={toggleRegisterForm}>Login here.</button>
+            <button onClick={toggleRegisterForm}>Login here</button>
           </span>
         ) : (
           <span>
             Don't have an account?{" "}
-            <button onClick={toggleRegisterForm}>Register here.</button>
+            <button onClick={toggleRegisterForm}>Register here</button>
           </span>
         )}
       </p>
@@ -53,6 +53,7 @@ const Login = ({ toggleRegisterForm }) => {
 
       if (result.data.token) {
         setCookies("access_token", result.data.token);
+        console.log(" USER ID FRONT", result.data.userID);
         window.localStorage.setItem("userID", result.data.userID);
         navigate("/");
       } else {
