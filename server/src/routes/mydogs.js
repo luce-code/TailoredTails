@@ -31,12 +31,17 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/", async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
-    const mydog = await MydogsModel.findById(req.body.mydogId);
+    const mydog = await MydogsModel.findById(req.params.id);
     const user = await UserModel.findById(req.body.userId);
 
-    user.savedMydogs.push(mydog._id);
+    if (!user) {
+      console.log("User not found");
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    user.savedMydogs?.push(mydog?._id);
     await user.save();
     console.log("After save:", user.savedMydogs);
     res.status(200).json({ savedMydogs: user.savedMydogs });
