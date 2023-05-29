@@ -29,4 +29,4 @@ const mydogsSchema = mongoose.Schema({
   },
 });
 
-export const MydogsModel = mongoose.model("Mydogs", mydogsSchema);
+// export const MydogsModel = mongoose.model("Mydogs", mydogsSchema);
