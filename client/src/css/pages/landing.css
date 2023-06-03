@@ -1,13 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 
 .landing {
   width: 100%;
   max-width: 1200px;
   display: grid;
-  grid-template-rows: [landing-header-start] 80vh [landing-header-end landing-features-start] auto [landing-features-end landing-details-start] 100vh [landing-details-end landing-community-start] 50vh [landing-community-end landing-signup-start] auto [landing-signup-end];
+  grid-template-rows: [landing-header-start] 80vh repeat(3, auto);
   grid-template-columns: [landing-gutter-left-start] 1fr [landing-gutter-left-end landing-content-start] minmax(400px, 1200px) [landing-content-end landing-gutter-right-start] 1fr [landing-gutter-right-end];
   row-gap: 3rem;
   margin: 3rem 0;
+
+  font-family: 'Lato', sans-serif;;
 }
 
 /* Header Start */
@@ -26,10 +28,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: 'Lato', sans-serif;
-  font-size: 2rem;
-  font-size: 2.25rem;
-  /* border: 2px solid black; */
   width: 65%;
 }
 
@@ -68,7 +66,7 @@
 }
 
 .landing__features-header {
-  font-size: 2.25rem;
+  /* font-size: 2.25rem; */
   text-align: center;
   margin-top: 3rem;
 }
@@ -83,27 +81,64 @@
 }
 
 .landing__feature-head {
-  font-weight: bold;
   /* color: white; */
   display: block;
   margin-bottom: 1rem;
-  font-size: 1.25rem;
 }
 
 /* Features End */
 /* Details Start */
 
 .landing__details {
-  background-color: purple;
   grid-column: 2 / 3;
 }
 
-.landing__community {
-  background-color: grey;
-  grid-column: 2 / 3;
+.landing__detail {
+  display: flex;
 }
 
-/* Community End */
+.landing__detail:first-child {
+  margin-bottom: 2rem;
+}
+
+.landing__detail-img--1 {
+  content: "";
+  width: 50%;
+  height: 22rem;
+  background-image:
+    url("https://i.imgur.com/jZFRbvS.png");
+  background-size: cover;
+  border-radius: 5px;
+}
+
+.landing__detail-img--2 {
+  content: "";
+  width: 50%;
+  height: 22rem;
+  background-image:
+    url("https://i.imgur.com/pfkjA7a.png");
+  background-size: cover;
+  border-radius: 5px;
+}
+
+.landing_-deatil-img {
+  background-size: cover;
+}
+
+.landing__detail-img--1 {
+  background-image: url("https://i.imgur.com/8ohiiJC.png");
+}
+
+.landing__detail-textbox {
+  padding: 7rem 2rem;
+}
+
+.landing__detail-textbox p {
+  margin-top: 1rem;
+}
+
+
+/* Details End */
 /* Signup Start */
 
 .landing__signup {
@@ -112,16 +147,12 @@
   border-radius: 5px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   padding: 3rem 0;
-}
-
-.landing__signup-text {
-  font-size: 1.75rem;
 }
 
 .landing__signup-button {
   text-decoration: none;
-  font-size: 1.25rem;
   color: white;
   background-color: #18a0fb;
   border-radius: 10px;

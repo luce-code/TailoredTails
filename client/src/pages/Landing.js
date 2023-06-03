@@ -31,7 +31,7 @@ function Landing() {
       <div className="landing__header">
         <div className="landing__header--left">
           <div className="landing__header--text-box">
-            <span>The largest community of pet enthusiasts</span>
+            <span className="header-1">The largest community of pet enthusiasts</span>
             <br />
             <Link to="/login">Join Today</Link>
           </div>
@@ -41,22 +41,42 @@ function Landing() {
 
       {/* Features */}
       <div className="landing__features">
-        <div className="landing__features-header">All of your pet's information in one convenient place</div>
+        <div className="landing__features-header header-1">All of your pet's information in one convenient place</div>
         <div className="landing__features-main">
           {featuresData.map((featuresObj) => {
             return (
             <div className={`landing__feature landing__feature--${featuresObj.number}`} key={featuresObj.number}>
-              <span className="landing__feature-head">{featuresObj.title}</span>
+              <span className="landing__feature-head header-2">{featuresObj.title}</span>
               <span className="landing__feature-content">{featuresObj.content}</span>
             </div>) 
           })}
         </div>
       </div>
 
-      <div className="landing__details">Features 2</div>
-      <div className="landing__community">Community</div>
+      {/* Details */}
+      <div className="landing__details">
+
+        <div className="landing__detail landing__detail">
+          <div className="landing__detail-img--1"></div>
+          <div className="landing__detail-textbox">
+              <span className="header-2">Happy pets are nurtured by their community</span>
+              <p className="plaintext">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Image on left of dog at busy park or something</p>
+          </div>
+        </div>
+
+        <div className="landing__detail landing__detail--2">
+        <div className="landing__detail-textbox">
+            <span className="header-2">Happy pets are nurtured by their community</span>
+            <p className="leadnign__detail-text plaintext">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Image on left of dog at busy park or something</p>
+          </div>
+          <div className="landing__detail-img--2"></div>
+        </div>
+        
+      </div>
+
+      {/* SignUp */}
       <div className="landing__signup">
-        <span className="landing__signup-text">Sign up is free and only one click away!</span>
+        <span className="header-2">Sign up is free and only one click away!</span>
         <div className="landing__signup-buttons">
           <Link to="/login" className="landing__signup-button landing__signup-button--1">Join Today</Link>
           <Link to="/" className="landing__signup-button landing__signup-button--2">Contact Us</Link>
