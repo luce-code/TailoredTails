@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Monomaniac+One&display=swap');
+
+.footer {
+  background: linear-gradient(#7b7272, #969191, #7b7272);
+  height: 30vh;
+  width: 100%;
+}
+
+.footer__head {
+  display: block;
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+  font-family: 'Monomaniac One', sans-serif;
+  margin-top: 3rem;
+}
+
+.footer__main {
+  max-width: 800px;
+  color: white;
+  margin: 0 auto;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.footer__links a,
+.footer__p a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer__p {
+  width: 50%;
+}
