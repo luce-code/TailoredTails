@@ -36,7 +36,7 @@ export const Navbar = () => {
             <Link className="navbar__button" to="/">Support</Link>
           </div>
           <div className="navbar-right">
-            <Link className="navbar__button" to="/login">Login</Link>
+            <Link className="navbar__button" to="/login">Profile</Link>
             <Link to="/" onClick={handleLogout} className="navbar__button">Logout</Link>
           </div>
         </div>
