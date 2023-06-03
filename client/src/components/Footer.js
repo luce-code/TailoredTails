@@ -7,7 +7,7 @@ function Footer() {
       <div className="footer__main">
         <div className="footer__links">
           <Link to="https://drewford.dev" target="_blank">Developed by Drewford</Link>
-          <Link to="https://mohammadreza-memar-portfolio-moreza66.vercel.app" target="_blank">Manufactured by Moreza</Link>
+          <Link to="https://mohammadreza-memar-portfolio-moreza66.vercel.app" target="_blank">Made by Mm</Link>
         </div>
         <div className="footer__p">
           &#169; 2023 by Luce Code. React, API, and Database by 
