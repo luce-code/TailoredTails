@@ -9,6 +9,9 @@ import { Navbar } from "./componnents/navbar";
 import jwt_decode from "jwt-decode";
 // import RegisterPage from "./pages/register";
 
+import "./css/base/base.css"
+import "./css/layout/navbar.css"
+
 function App() {
   const [user, setUser] = useState({});
   function handleCallbackResponse(response) {
