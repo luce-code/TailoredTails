@@ -4,7 +4,7 @@
   width: 100%;
   max-width: 1200px;
   display: grid;
-  grid-template-rows: [landing-header-start] 80vh [landing-header-end landing-features-1-start] 70vh [landing-features-1-end landing-features-2-start] 100vh [landing-features-2-end landing-community-start] 50vh [landing-community-end landing-signup-start] 30vh [landing-signup-end];
+  grid-template-rows: [landing-header-start] 80vh [landing-header-end landing-features-start] auto [landing-features-end landing-details-start] 100vh [landing-details-end landing-community-start] 50vh [landing-community-end landing-signup-start] 30vh [landing-signup-end];
   grid-template-columns: [landing-gutter-left-start] 1fr [landing-gutter-left-end landing-content-start] minmax(400px, 1200px) [landing-content-end landing-gutter-right-start] 1fr [landing-gutter-right-end];
   row-gap: 3rem;
   margin: 3rem 0;
@@ -28,6 +28,7 @@
   transform: translate(-50%, -50%);
   font-family: 'Lato', sans-serif;
   font-size: 2rem;
+  font-size: 2.25rem;
   /* border: 2px solid black; */
   width: 65%;
 }
@@ -67,7 +68,7 @@
 }
 
 .landing__features-header {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   text-align: center;
   margin-top: 3rem;
 }
