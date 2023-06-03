@@ -55,7 +55,13 @@ function Landing() {
 
       <div className="landing__details">Features 2</div>
       <div className="landing__community">Community</div>
-      <div className="landing__signup">SignUp</div>
+      <div className="landing__signup">
+        <span className="landing__signup-text">Sign up is free and only one click away!</span>
+        <div className="landing__signup-buttons">
+          <Link to="/login" className="landing__signup-button landing__signup-button--1">Join Today</Link>
+          <Link to="/" className="landing__signup-button landing__signup-button--2">Contact Us</Link>
+        </div>
+      </div>
 
     </div>
   )

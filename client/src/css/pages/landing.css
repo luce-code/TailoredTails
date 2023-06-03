@@ -4,7 +4,7 @@
   width: 100%;
   max-width: 1200px;
   display: grid;
-  grid-template-rows: [landing-header-start] 80vh [landing-header-end landing-features-start] auto [landing-features-end landing-details-start] 100vh [landing-details-end landing-community-start] 50vh [landing-community-end landing-signup-start] 30vh [landing-signup-end];
+  grid-template-rows: [landing-header-start] 80vh [landing-header-end landing-features-start] auto [landing-features-end landing-details-start] 100vh [landing-details-end landing-community-start] 50vh [landing-community-end landing-signup-start] auto [landing-signup-end];
   grid-template-columns: [landing-gutter-left-start] 1fr [landing-gutter-left-end landing-content-start] minmax(400px, 1200px) [landing-content-end landing-gutter-right-start] 1fr [landing-gutter-right-end];
   row-gap: 3rem;
   margin: 3rem 0;
@@ -103,7 +103,32 @@
   grid-column: 2 / 3;
 }
 
+/* Community End */
+/* Signup Start */
+
 .landing__signup {
-  background-color: lightblue;
   grid-column: 2 / 3;
+  background-color: lightgrey;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  padding: 3rem 0;
+}
+
+.landing__signup-text {
+  font-size: 1.75rem;
+}
+
+.landing__signup-button {
+  text-decoration: none;
+  font-size: 1.25rem;
+  color: white;
+  background-color: #18a0fb;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: .5rem 2rem;
+}
+
+.landing__signup-button--1 {
+  margin-right: 1rem;
 }
