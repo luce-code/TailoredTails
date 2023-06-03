@@ -95,6 +95,7 @@
 
 .landing__detail {
   display: flex;
+  justify-content: space-around;
 }
 
 .landing__detail:first-child {

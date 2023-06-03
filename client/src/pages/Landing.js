@@ -59,7 +59,7 @@ function Landing() {
         <div className="landing__detail landing__detail">
           <div className="landing__detail-img--1"></div>
           <div className="landing__detail-textbox">
-              <span className="header-2">Happy pets are nurtured by their community</span>
+              <span className="header-2">Healthy pets are nurtured by their community</span>
               <p className="plaintext">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Image on left of dog at busy park or something</p>
           </div>
         </div>
@@ -73,6 +73,8 @@ function Landing() {
         </div>
         
       </div>
+
+      {/* Placeholder for Reviews */}
 
       {/* SignUp */}
       <div className="landing__signup">
