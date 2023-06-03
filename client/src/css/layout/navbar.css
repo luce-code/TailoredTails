@@ -25,6 +25,7 @@
 /* Logo Start */
 .navbar__home {
   transition: all .25s;
+  margin: 10px;
   margin-right: 1.5rem;
 }
 
