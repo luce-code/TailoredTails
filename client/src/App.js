@@ -12,7 +12,9 @@ import jwt_decode from "jwt-decode";
 import "./css/base/base.css"
 import "./css/base/typography.css"
 import "./css/base/variables.css"
+import "./css/components/petprofile.css"
 import "./css/layout/navbar.css"
+import "./css/pages/kennel.css"
 import "./css/pages/landing.css"
 
 function App() {

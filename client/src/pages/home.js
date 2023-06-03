@@ -3,6 +3,8 @@ import axios from "axios";
 import { useGetUserID } from "../hooks/useGetUserID";
 import { useCookies } from "react-cookie";
 
+import { LuShare, LuEdit } from 'react-icons/lu';
+
 import Landing from "./Landing";
 
 export const Home = () => {
@@ -76,7 +78,57 @@ export const Home = () => {
     <div>
       {!cookies.access_token ? (<Landing />) : (<>
 
-      <h1>My Dogs</h1>
+      <h1>My Kennel</h1>
+
+      <div className="kennel">
+
+        <div className="pet-profile">
+          <div className="pet-profile__header">
+            <span className="pet-name">Zeus</span>
+            <div className="pet-profile__icons-box">
+            <span className="edit-button"><LuEdit /></span>
+            <span className="share-button"><LuShare /></span>
+            </div>
+          </div>
+          <img className="pet-profile__img" src="https://i.imgur.com/yoJen9C.png" alt="(pet name)" />
+          <span className="pet-profile__detail">Age: 20 months</span>
+          <span className="pet-profile__detail">Birthday: Oct 3rd, 2021</span>
+          <span className="pet-profile__detail">Breed: Chow Chow</span>
+          <span className="pet-profile__detail">Weight: 50 lbs</span>
+
+          <span className="pet-profile__button">Likes & Dislikes</span>
+          <span className="pet-profile__button">Routine</span>
+          <span className="pet-profile__button">Schedule</span>
+          <span className="pet-profile__button">Medical History</span>
+          <span className="pet-profile__button">Emergency Contacts</span>
+          <span className="pet-profile__button">Images & Files</span>
+        </div>
+
+        <div className="pet-profile">
+          <div className="pet-profile__header">
+            <span className="pet-name">Zeus</span>
+            <div className="pet-profile__icons-box">
+            <span className="edit-button"><LuEdit /></span>
+            <span className="share-button"><LuShare /></span>
+            </div>
+          </div>
+          <img className="pet-profile__img" src="https://i.imgur.com/yoJen9C.png" alt="(pet name)" />
+          <span className="pet-profile__detail">Age: 20 months</span>
+          <span className="pet-profile__detail">Birthday: Oct 3rd, 2021</span>
+          <span className="pet-profile__detail">Breed: Chow Chow</span>
+          <span className="pet-profile__detail">Weight: 50 lbs</span>
+
+          <span className="pet-profile__button">Likes & Dislikes</span>
+          <span className="pet-profile__button">Routine</span>
+          <span className="pet-profile__button">Schedule</span>
+          <span className="pet-profile__button">Medical History</span>
+          <span className="pet-profile__button">Emergency Contacts</span>
+          <span className="pet-profile__button">Images & Files</span>
+        </div>
+
+      </div>
+
+      {/* <h1>My Dogs</h1>
       <ul>
         {mydogs.map((mydog) => (
           <li key={mydog._id}>
@@ -135,8 +187,8 @@ export const Home = () => {
             <p>Breed: {mydog.breed}</p>
           </li>
         ))}
-      </ul>
-      
+      </ul> */}
+
       </>) }
     </div>
   );
