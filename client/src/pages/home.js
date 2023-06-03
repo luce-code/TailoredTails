@@ -1,8 +1,18 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useGetUserID } from "../hooks/useGetUserID";
+import { useCookies } from "react-cookie";
+
+import Landing from "./Landing";
 
 export const Home = () => {
+  const [cookies, setCookies, removeCookies] = useCookies(["access_token"]);
+
+  // const handleLogout = () => {
+  //   removeCookies("access_token");
+  //   console.log("Logout clicked"); // add this line
+  // };
+
   const userID = useGetUserID();
   const [mydogs, setMydogs] = useState([]);
   const [editingDog, setEditingDog] = useState(null);
@@ -64,6 +74,8 @@ export const Home = () => {
 
   return (
     <div>
+      {!cookies.access_token ? (<Landing />) : (<>
+
       <h1>My Dogs</h1>
       <ul>
         {mydogs.map((mydog) => (
@@ -124,6 +136,8 @@ export const Home = () => {
           </li>
         ))}
       </ul>
+      
+      </>) }
     </div>
   );
 };

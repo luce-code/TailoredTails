@@ -16,13 +16,13 @@ input {
   font-size: 16px;
   border-radius: 5px;
 }
-
+/* 
 a {
   color: white;
   text-decoration: none;
   margin: 10px;
   font-size: 25px;
-}
+} */
 
 .create-mydog {
   display: flex;

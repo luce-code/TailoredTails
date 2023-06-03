@@ -11,6 +11,7 @@ import jwt_decode from "jwt-decode";
 
 import "./css/base/base.css"
 import "./css/layout/navbar.css"
+import "./css/pages/landing.css"
 
 function App() {
   const [user, setUser] = useState({});
