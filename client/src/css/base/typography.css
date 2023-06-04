@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+.header-1 {
+  font-family: 'Lato', sans-serif;
+  font-size: 2.25rem;
+}
+
+.header-2 {
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.plaintext {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+}
+
+.pet-name {
+  display: block;
+  font-family: 'Lilita One', cursive;
+  font-size: 2rem;
+  color: white;
+}
+
+.edit-button,
+.share-button {
+  font-size: 1.5rem;
+  color: white;
+  margin-left: .5rem;
+  cursor: pointer;
+}

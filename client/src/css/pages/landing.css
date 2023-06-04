@@ -1,0 +1,166 @@
+
+
+.landing {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-rows: [landing-header-start] 80vh repeat(3, auto);
+  grid-template-columns: [landing-gutter-left-start] 1fr [landing-gutter-left-end landing-content-start] minmax(400px, 1200px) [landing-content-end landing-gutter-right-start] 1fr [landing-gutter-right-end];
+  row-gap: 3rem;
+  margin: 3rem 0;
+
+  font-family: 'Lato', sans-serif;;
+}
+
+/* Header Start */
+.landing__header {
+  grid-column: 2 / 3;
+  display: flex;
+}
+
+.landing__header--left {
+  width: 50%;
+  position: relative;
+}
+
+.landing__header--text-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 65%;
+}
+
+.landing__header--text-box a{
+  text-decoration: none;
+  font-size: 1.25rem;
+  color: white;
+  background-color: #18a0fb;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: .5rem 2rem;
+}
+
+.landing__header--right {
+  content: "";
+  width: 50%;
+  height: 100%;
+  background-image:
+    url("https://i.imgur.com/jZFRbvS.png");
+  background-size: cover;
+  background-position-x: 90%;
+  border-radius: 5px;
+}
+
+.landing__header--left span {
+  display: block;
+}
+
+/* Header End */
+/* Features Start*/
+
+.landing__features {
+  background-color: lightgray;
+  grid-column: 2 / 3;
+  border-radius: 5px;
+}
+
+.landing__features-header {
+  /* font-size: 2.25rem; */
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.landing__features-main {
+  display: grid;
+  margin: 3rem;
+  grid-template-columns: repeat(2, 45%);
+  grid-template-rows: repeat(2, 45%);
+  grid-gap: 3rem;
+  row-gap: 3rem;
+}
+
+.landing__feature-head {
+  /* color: white; */
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* Features End */
+/* Details Start */
+
+.landing__details {
+  grid-column: 2 / 3;
+}
+
+.landing__detail {
+  display: flex;
+  justify-content: space-around;
+}
+
+.landing__detail:first-child {
+  margin-bottom: 2rem;
+}
+
+.landing__detail-img--1 {
+  content: "";
+  width: 50%;
+  height: 22rem;
+  background-image:
+    url("https://i.imgur.com/jZFRbvS.png");
+  background-size: cover;
+  border-radius: 5px;
+}
+
+.landing__detail-img--2 {
+  content: "";
+  width: 50%;
+  height: 22rem;
+  background-image:
+    url("https://i.imgur.com/pfkjA7a.png");
+  background-size: cover;
+  border-radius: 5px;
+}
+
+.landing_-deatil-img {
+  background-size: cover;
+}
+
+.landing__detail-img--1 {
+  background-image: url("https://i.imgur.com/8ohiiJC.png");
+}
+
+.landing__detail-textbox {
+  padding: 7rem 2rem;
+}
+
+.landing__detail-textbox p {
+  margin-top: 1rem;
+}
+
+
+/* Details End */
+/* Signup Start */
+
+.landing__signup {
+  grid-column: 2 / 3;
+  background-color: lightgrey;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 3rem 0;
+}
+
+.landing__signup-button {
+  text-decoration: none;
+  color: white;
+  background-color: #18a0fb;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: .5rem 2rem;
+}
+
+.landing__signup-button--1 {
+  margin-right: 1rem;
+}

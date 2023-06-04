@@ -5,9 +5,19 @@ import { Home } from "./pages/home";
 import { Auth } from "./pages/auth";
 import { CreateMydog } from "./pages/create-mydog";
 import { MyDog } from "./pages/my-dog";
-import { Navbar } from "./componnents/navbar";
+import Footer from "./components/Footer";
+import { Navbar } from "./components/navbar";
 import jwt_decode from "jwt-decode";
 // import RegisterPage from "./pages/register";
+
+import "./css/base/base.css"
+import "./css/base/typography.css"
+import "./css/base/variables.css"
+import "./css/components/petprofile.css"
+import "./css/layout/footer.css"
+import "./css/layout/navbar.css"
+import "./css/pages/kennel.css"
+import "./css/pages/landing.css"
 
 function App() {
   const [user, setUser] = useState({});
@@ -58,6 +68,7 @@ function App() {
           <Route path="/create-mydog" element={<CreateMydog />} />
           <Route path="/my-dog" element={<MyDog />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

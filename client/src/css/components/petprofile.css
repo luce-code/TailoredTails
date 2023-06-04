@@ -1,0 +1,35 @@
+.pet-profile {
+  background-color: lightblue;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.pet-profile__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pet-profile__icons-box {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pet-profile__img {
+  border-radius: 5px;
+  margin-top: .5rem;
+  width: 18rem;
+}
+
+.pet-profile__detail,
+.pet-profile__button {
+  display: block;
+}
+
+.pet-profile__detail:not(last-child),
+.pet-profile__button:not(last-child) {
+  margin-bottom: 1rem;
+}
+
+.pet-profile__button {
+  cursor: pointer;
+}

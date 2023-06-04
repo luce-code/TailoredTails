@@ -1,0 +1,69 @@
+@import "../base/variables.css";
+
+.navbar {
+  margin: 0;
+  width: 100%;
+  height: 3.5rem;
+  background-color: rgb(123, 114, 114);
+  /* background: linear-gradient(
+    to bottom,
+    #7b7272,
+    #969191,
+    #7b7272); */
+    background: linear-gradient(#7b7272, #969191, #7b7272);
+  /* background-color: var(--color-primary); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* position: fixed; */
+
+}
+
+.navbar__main {
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-left {
+  display: flex;
+}
+
+/* Logo Start */
+.navbar__home {
+  transition: all .25s;
+  margin-top: 3px;
+  margin-right: 1.5rem;
+}
+
+.navbar__home:hover {
+  -webkit-filter: drop-shadow(5px 5px 5px #000);
+  filter: drop-shadow(5px 5px 5px #000);
+}
+
+.navbar__logo {
+  height: 30px;
+  width: auto;
+  margin: auto;
+  filter: invert(100%);
+  -webkit-filter: invert(100%);
+}
+/* Logo End */
+
+.navbar__button {
+  font-size: 18px;
+  line-height: 18px;
+  transition: all .5s;
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+
+  /* -webkit-filter: drop-shadow(5px 5px 5px #000);
+  filter: drop-shadow(5px 5px 5px #000); */
+}
+
+.navbar__button:hover {
+  -webkit-filter: drop-shadow(5px 5px 5px #000);
+  filter: drop-shadow(5px 5px 5px #000);
+}
