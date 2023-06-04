@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/home";
 import { Auth } from "./pages/auth";
-import { CreateMydog } from "./pages/create-mydog";
+// import { CreateMydog } from "./pages/create-mydog";
 import { MyDog } from "./pages/my-dog";
 import Footer from "./components/Footer";
 import { Navbar } from "./components/navbar";
@@ -65,7 +65,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Auth />} />
           {/* <Route path="/register" element={<RegisterPage />} /> */}
-          <Route path="/create-mydog" element={<CreateMydog />} />
+          {/* <Route path="/create-mydog" element={<CreateMydog />} /> */}
           <Route path="/my-dog" element={<MyDog />} />
         </Routes>
         <Footer />

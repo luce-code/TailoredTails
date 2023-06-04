@@ -8,7 +8,8 @@ import { LuShare, LuEdit } from 'react-icons/lu';
 import Landing from "./Landing";
 
 export const Home = () => {
-  const [cookies, setCookies, removeCookies] = useCookies(["access_token"]);
+  const [cookies] = useCookies(["access_token"]);
+  // rm setCookies, removeCookies until used
 
   // const handleLogout = () => {
   //   removeCookies("access_token");
@@ -17,13 +18,15 @@ export const Home = () => {
 
   const userID = useGetUserID();
   const [mydogs, setMydogs] = useState([]);
-  const [editingDog, setEditingDog] = useState(null);
+  // rm mydogs until it is used
 
-  const getAgeInYearsAndMonths = (ageInMonths) => {
-    const years = Math.floor(ageInMonths / 12);
-    const months = ageInMonths % 12;
-    return `${years} years, ${months} months`;
-  };
+  // const [editingDog, setEditingDog] = useState(null);
+
+  // const getAgeInYearsAndMonths = (ageInMonths) => {
+  //   const years = Math.floor(ageInMonths / 12);
+  //   const months = ageInMonths % 12;
+  //   return `${years} years, ${months} months`;
+  // };
 
   useEffect(() => {
     const fetchMydogs = async () => {
@@ -40,39 +43,39 @@ export const Home = () => {
     };
 
     fetchMydogs();
-  }, []);
+  }, [userID, mydogs]);
 
-  const handleEdit = (mydog) => {
-    setEditingDog(mydog);
-  };
+  // const handleEdit = (mydog) => {
+  //   setEditingDog(mydog);
+  // };
 
-  const handleSave = async (updatedDog) => {
-    try {
-      await axios.put(
-        `http://localhost:3001/mydogs/${updatedDog._id}`,
-        updatedDog
-      );
-      setMydogs(
-        mydogs.map((dog) => (dog._id === updatedDog._id ? updatedDog : dog))
-      );
-      setEditingDog(null);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const handleSave = async (updatedDog) => {
+  //   try {
+  //     await axios.put(
+  //       `http://localhost:3001/mydogs/${updatedDog._id}`,
+  //       updatedDog
+  //     );
+  //     setMydogs(
+  //       mydogs.map((dog) => (dog._id === updatedDog._id ? updatedDog : dog))
+  //     );
+  //     setEditingDog(null);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
-  const handleCancel = () => {
-    setEditingDog(null);
-  };
+  // const handleCancel = () => {
+  //   setEditingDog(null);
+  // };
 
-  const handleDelete = async (mydog) => {
-    try {
-      await axios.delete(`http://localhost:3001/mydogs/${mydog._id}`);
-      setMydogs(mydogs.filter((dog) => dog._id !== mydog._id));
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const handleDelete = async (mydog) => {
+  //   try {
+  //     await axios.delete(`http://localhost:3001/mydogs/${mydog._id}`);
+  //     setMydogs(mydogs.filter((dog) => dog._id !== mydog._id));
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   return (
     <div>

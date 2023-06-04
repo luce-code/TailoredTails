@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
 export const Navbar = () => {
-  const [cookies, setCookies, removeCookies] = useCookies(["access_token"]);
+  const [cookies, removeCookies] = useCookies(["access_token"]);
+  // removed setCookies for now
 
   const handleLogout = () => {
     removeCookies("access_token");
