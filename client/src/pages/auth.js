@@ -35,7 +35,8 @@ export const Auth = () => {
 };
 
 const Login = ({ toggleRegisterForm }) => {
-  const [_, setCookies] = useCookies(["access_token"]);
+  const [setCookies] = useCookies(["access_token"]);
+  // rm cookies for now as it is unused.
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -103,8 +104,8 @@ const Register = ({ toggleRegisterForm }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const [_, setCookies] = useCookies(["access_token"]);
-  const navigate = useNavigate();
+  // const [_, setCookies] = useCookies(["access_token"]);
+  // const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
