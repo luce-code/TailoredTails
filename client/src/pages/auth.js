@@ -35,7 +35,7 @@ export const Auth = () => {
 };
 
 const Login = ({ toggleRegisterForm }) => {
-  const [setCookies] = useCookies(["access_token"]);
+  const [cookies, setCookies] = useCookies(["access_token"]);
   // rm cookies for now as it is unused.
 
   const [username, setUsername] = useState("");
