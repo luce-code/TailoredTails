@@ -1,0 +1,29 @@
+.details {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  right: -200%;
+  background-color: lightgrey;
+  width: 40rem;
+  height: 46.75rem;
+  border-radius: 1rem;
+}
+
+.details__close {
+  position: absolute;
+  top: 1%;
+  right: 1.5%;
+  cursor: pointer;
+  border-radius: 50%;
+  color: white;
+  border: 2px solid white;
+}
+
+.details__header {
+  text-align: center;
+}
+
+.details__two-col {
+  display: flex;
+  justify-content: space-around;
+}

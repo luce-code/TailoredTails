@@ -13,6 +13,7 @@ import jwt_decode from "jwt-decode";
 import "./css/base/base.css"
 import "./css/base/typography.css"
 import "./css/base/variables.css"
+import "./css/components/details.css"
 import "./css/components/petprofile.css"
 import "./css/layout/footer.css"
 import "./css/layout/navbar.css"
