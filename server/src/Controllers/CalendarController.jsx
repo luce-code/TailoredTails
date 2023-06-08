@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Event = require('../models/Event');
+const Event = require('../../../Luce-code/TailoredTails/server/src/models/Event');
 const moment = require('moment');
 
 router.post({ path: '/create-event' }, async (req, res) => {
