@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import Calendar from "../pages/Calendar";
+
 
 export const Navbar = () => {
-  const [cookies, setCookies, removeCookies] = useCookies(["access_token"]);
+  const [cookies, removeCookies] = useCookies(["access_token"]);
+  // removed setCookies for now
 
   const handleLogout = () => {
     removeCookies("access_token");
@@ -32,7 +35,7 @@ export const Navbar = () => {
           <Link className="navbar__home" to="/"><img className="navbar__logo" src="https://i.imgur.com/c6GK0kY.png" alt="tailored tails logo" /></Link>
             <Link className="navbar__button" to="/">Kennel</Link>
             <Link className="navbar__button" to="/">Routine</Link>
-            <Link className="navbar__button" to="/">Calendar</Link>
+            <Link className="navbar__button" to="/Calendar">Calendar</Link>
             <Link className="navbar__button" to="/">Support</Link>
           </div>
           <div className="navbar-right">
