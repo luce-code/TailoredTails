@@ -1,16 +1,16 @@
-import express from "express";
-import mongoose from "mongoose";
-import { MydogsModel } from "../models/Mydogs.js";
-import { UserModel } from "../models/Users.js";
+import express from 'express';
+import mongoose from 'mongoose';
+import { MydogsModel } from '../models/Mydogs.js';
+import { UserModel } from '../models/Users.js';
 
 const router = express.Router();
 
 //each user can only see her/his posts
-router.get("/", async (req, res) => {
-  const userID = req.headers["user-id"];
+router.get('/', async (req, res) => {
+  const userID = req.headers['user-id'];
   const myDogs = await MydogsModel.find({ userOwner: userID });
   try {
-    console.log("Dogs found:", myDogs);
+    console.log('Dogs found:', myDogs);
     res.status(200).json(myDogs);
   } catch (err) {
     console.error(err);
@@ -18,12 +18,12 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post('/', async (req, res) => {
   const mydogs = new MydogsModel(req.body);
   try {
-    console.log("Before save:", mydogs);
+    console.log('Before save:', mydogs);
     const result = await mydogs.save();
-    console.log("After save:", result);
+    console.log('After save:', result);
     res.status(200).json(result);
   } catch (err) {
     console.error(err);
@@ -31,19 +31,19 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const mydog = await MydogsModel.findById(req.params.id);
     const user = await UserModel.findById(req.body.userId);
 
     if (!user) {
-      console.log("User not found");
-      return res.status(404).json({ message: "User not found" });
+      console.log('User not found');
+      return res.status(404).json({ message: 'User not found' });
     }
 
     user.savedMydogs?.push(mydog?._id);
     await user.save();
-    console.log("After save:", user.savedMydogs);
+    console.log('After save:', user.savedMydogs);
     res.status(200).json({ savedMydogs: user.savedMydogs });
   } catch (err) {
     console.error(err);
@@ -51,7 +51,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-router.get("/my-dog/ids", async (req, res) => {
+router.get('/my-dog/ids', async (req, res) => {
   try {
     const user = await UserModel.findById(req.query.userID);
     res.json({ savedMydogs: user?.savedMydogs });
@@ -60,7 +60,7 @@ router.get("/my-dog/ids", async (req, res) => {
   }
 });
 
-router.post("/my-dog", async (req, res) => {
+router.post('/my-dog', async (req, res) => {
   try {
     const user = await UserModel.findById(req.body.userID);
     const savedMydogs = await MydogsModel.find({
@@ -88,16 +88,16 @@ router.post("/my-dog", async (req, res) => {
 //     res.status(500).send("Server error");
 //   }
 // });
-router.delete("/:id", async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const mydog = await MydogsModel.findByIdAndDelete(req.params.id);
     if (!mydog) {
-      return res.status(404).send("Mydog not found");
+      return res.status(404).send('Mydog not found');
     }
     res.send(mydog);
   } catch (error) {
     console.error(error);
-    res.status(500).send("Server error");
+    res.status(500).send('Server error');
   }
 });
 
