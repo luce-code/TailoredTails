@@ -18,7 +18,7 @@ export const Auth = () => {
       ) : (
         <Login toggleRegisterForm={toggleRegisterForm} />
       )}
-      <p>
+      <div>
         {showRegisterForm ? (
           <span>
             Already have an account?{" "}
@@ -30,7 +30,7 @@ export const Auth = () => {
             <button onClick={toggleRegisterForm}>Register here</button>
           </span>
         )}
-      </p>
+      </div>
     </div>
   );
 };
@@ -92,10 +92,6 @@ const Login = ({ toggleRegisterForm }) => {
         </div>
         <button type="submit">Login</button>
       </form>
-      <p>
-        Don't have an account?{" "}
-        <button onClick={toggleRegisterForm}>Register here.</button>
-      </p>
     </div>
   );
 };
@@ -157,8 +153,6 @@ const Register = ({ toggleRegisterForm }) => {
         </div>
         <button type="submit">Register</button>
       </form>
-      <p>Already have an account?</p>
-      <Link to="/login">Login here</Link>
     </div>
   );
 };
