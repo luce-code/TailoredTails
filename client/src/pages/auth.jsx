@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import { useNavigate, Link } from "react-router-dom";
+import "../../src/css/base/base.css";
 
 export const Auth = () => {
   const [showRegisterForm, setShowRegisterForm] = useState(false);
@@ -104,9 +105,6 @@ const Register = ({ toggleRegisterForm }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  // const [_, setCookies] = useCookies(["access_token"]);
-  // const navigate = useNavigate();
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (password !== confirmPassword) {
@@ -126,7 +124,7 @@ const Register = ({ toggleRegisterForm }) => {
   };
 
   return (
-    <div className="auth-container">
+    <div className="auth-container" style={{ backgroundImage: "url(./public/assets/image/LoginBackground.png)" }}>
       <h2>Register</h2>
       <p>Create a new account by filling out the form below:</p>
       <form onSubmit={handleSubmit}>

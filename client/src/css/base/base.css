@@ -29,30 +29,59 @@ body {
 
 /* Login Page Start */
 .auth {
+  background-image: url("../../../public/assets/Image/LoginBackground.png");
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background-color: #f2f2f2;
 }
+button {
+  padding: 5px 10px;
+  background-color: #654dec;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #db9fef;
+}
 
 .auth-container {
+  background-image: url("../../../public/assets/Image/LoginContainnerBackground.png");
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   margin: 20px;
   width: 400px;
 }
+
 /* Login Page End */
 
 /* Google SignIn */
 #signInDiv {
   position: fixed;
-  top: 90%;
+  bottom: 3%;
   right: 3%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease-in-out;
+}
+
+#signInDiv:hover {
+  background-color: #f4f4f4;
 }
