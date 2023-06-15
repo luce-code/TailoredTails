@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useCookies } from "react-cookie";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../../src/css/base/base.css";
 
 export const Auth = () => {
@@ -18,30 +18,14 @@ export const Auth = () => {
       ) : (
         <Login toggleRegisterForm={toggleRegisterForm} />
       )}
-      <div>
-        {showRegisterForm ? (
-          <span>
-            Already have an account?{" "}
-            <button onClick={toggleRegisterForm}>Login here</button>
-          </span>
-        ) : (
-          <span>
-            Don't have an account?{" "}
-            <button onClick={toggleRegisterForm}>Register here</button>
-          </span>
-        )}
-      </div>
     </div>
   );
 };
 
 const Login = ({ toggleRegisterForm }) => {
   const [cookies, setCookies] = useCookies(["access_token"]);
-  // rm cookies for now as it is unused.
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -55,7 +39,7 @@ const Login = ({ toggleRegisterForm }) => {
 
       if (result.data.token) {
         setCookies("access_token", result.data.token);
-        console.log(" USER ID FRONT", result.data.userID);
+        console.log("USER ID FRONT", result.data.userID);
         window.localStorage.setItem("userID", result.data.userID);
         navigate("/");
       } else {
@@ -90,8 +74,16 @@ const Login = ({ toggleRegisterForm }) => {
             onChange={(event) => setPassword(event.target.value)}
           />
         </div>
-        <button type="submit">Login</button>
+        <div className="form-group">
+          <button type="submit">Login</button>
+        </div>
       </form>
+      <div className="form-group">
+        <span>
+          Don't have an account?{" "}
+          <button onClick={toggleRegisterForm}>Register here</button>
+        </span>
+      </div>
     </div>
   );
 };
@@ -120,7 +112,7 @@ const Register = ({ toggleRegisterForm }) => {
   };
 
   return (
-    <div className="auth-container" style={{ backgroundImage: "url(./public/assets/image/LoginBackground.png)" }}>
+    <div className="auth-container">
       <h2>Register</h2>
       <p>Create a new account by filling out the form below:</p>
       <form onSubmit={handleSubmit}>
@@ -153,6 +145,12 @@ const Register = ({ toggleRegisterForm }) => {
         </div>
         <button type="submit">Register</button>
       </form>
+      <div className="form-group">
+        <span>
+          Already have an account?{" "}
+          <button onClick={toggleRegisterForm}>Login here</button>
+        </span>
+      </div>
     </div>
   );
 };
