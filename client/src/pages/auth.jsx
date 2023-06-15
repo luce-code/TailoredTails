@@ -12,7 +12,7 @@ export const Auth = () => {
   };
 
   return (
-    <div className="auth">
+    <div className="auth-container">
       {showRegisterForm ? (
         <Register toggleRegisterForm={toggleRegisterForm} />
       ) : (
@@ -52,7 +52,7 @@ const Login = ({ toggleRegisterForm }) => {
   };
 
   return (
-    <div className="auth-container">
+    <div className="auth">
       <h2>Login</h2>
       <p>Enter your username and password below to login:</p>
       <form onSubmit={handleSubmit}>
@@ -112,7 +112,7 @@ const Register = ({ toggleRegisterForm }) => {
   };
 
   return (
-    <div className="auth-container">
+    <div className="auth">
       <h2>Register</h2>
       <p>Create a new account by filling out the form below:</p>
       <form onSubmit={handleSubmit}>
